@@ -1,0 +1,15 @@
+# how to add/delete a file and sync to repos
+
+# add a file 
+echo hello > hello.txt
+git add hello.txt
+git commit -m 'added hello' !$
+git push
+
+
+# remove a file
+git rm hello.txt
+# remove a file only from git repos and not remove it from the filesystem
+git rm --cached hello.txt
+git commit -m 'removed hello.txt'
+git push
