@@ -13,3 +13,10 @@ git rm hello.txt
 git rm --cached hello.txt
 git commit -m 'removed hello.txt'
 git push
+
+
+
+# solve prolem - cannot open display on server
+#
+unset SSH_ASKPASS
+git push origin master
