@@ -6,37 +6,37 @@ clean:
 	find . \( -name \*gene\* -o -name chr-\* \) -exec rm {} \;
 
 fasta:
-	echo OK
+	wget -P ./fasta/ -e robots=off -r -np -nd -l1 -nH -A .fsa http://downloads.yeastgenome.org/sequence/S288C_reference/chromosomes/fasta/
 
 genome: fasta
-	echo OK
+	cat ./fasta/*.fsa >> ./fasta/genome.fa
 
 chr-count: genome
-	echo OK
+	cat ./fasta/genome.fa | grep 'chromosome' | wc -l > chr-count
 
 chr-size: genome
-	echo OK
+	cat ./fasta/genome.fa | grep -v '>' | wc -m > chr-size
 
 features:
-	echo OK
+	wget http://downloads.yeastgenome.org/curation/chromosomal_feature/SGD_features.tab
 
 gene-count: features
-	echo OK
+	cat SGD_features.tab | awk '$$2 == "ORF" {print $$0}' | wc -l > gene-count
 
 verified-genes: features
-	echo OK
+	cat SGD_features.tab | awk '$$2 == "ORF" {print $$0}' | grep -e "Verified\s" | wc -l > verified-genes
 
 uncharacterized-genes: features
-	echo OK
+	cat SGD_features.tab | awk '$$2 == "ORF" {print $$0}' | grep "Uncharacterized" | wc -l > uncharacterized-genes
 
 gene-types: features
-	echo OK
+	cat SGD_features.tab | awk '$$2 == "ORF" {print $$3}' | sort | uniq -c | sed 's/^ *//g' > gene-types
 
 palinsreg:
-	echo OK
+	wget ftp://ftp.imicrobe.us/abe487/yeast/palinsreg.txt
 
 terminated-genes: palinsreg
-	echo OK
+	grep -o '/G=[^ ]*' palinsreg.txt | cut -d '=' -f 2 | sort | uniq > terminated-genes
 
 test:
 	./test.pl6
