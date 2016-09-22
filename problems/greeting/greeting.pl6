@@ -2,5 +2,7 @@
 
 sub MAIN (Str $name) {
     my $lens = $name.chars; #> number of chars in a string
-    put "Hello, $name, your name has $lens characters."
+    put "Hello, $name, your name has $lens characters.";
+    # can use printf
+    # printf "Hello, %s, your name has %d characters.\n", $name, $lens; 
 }
