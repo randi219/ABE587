@@ -7,11 +7,11 @@ read file lines and backwards print
 =end comment
 
 
-sub MAIN (Str $file!){           #> one required argument
-    unless ($file.IO.f) {        #> must be a file
-        USAGE;
-	exit 1;
-    }
+sub MAIN (Str $file! where *.IO.f){           #> one required argument
+#    unless ($file.IO.f) {        #> must be a file
+#        USAGE;
+#	exit 1;
+#    }
    
     my @lines = $file.IO.lines;  #> save lines as an array
     @lines .= reverse;           #> reverse array
