@@ -25,3 +25,11 @@ sub MAIN (Str $file!){           #> one required argument
 sub USAGE {
     note "Usage:\n\t{$*PROGRAM-NAME} <file>";
 }
+
+## other trivival method
+## print an array from the last
+# my @lines = $file.IO.lines;
+# for 1..@lines.elems -> $n {
+#     @lines[* - $n].say
+# }
+
