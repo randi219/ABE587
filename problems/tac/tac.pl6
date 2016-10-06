@@ -7,23 +7,29 @@ read file lines and backwards print
 =end comment
 
 
-sub MAIN (Str $file! where *.IO.f){           #> one required argument
+sub MAIN (Str $file! where *.IO.f){      #> one required argument that must be a file 
+
+    $file.IO.lines.reverse.map(*.say);
+
+## old code ##
 #    unless ($file.IO.f) {        #> must be a file
 #        USAGE;
 #	exit 1;
-#    }
+#    } 
    
-    my @lines = $file.IO.lines;  #> save lines as an array
-    put @lines.reverse.join("\n");
-
+#    my @lines = $file.IO.lines;  #> save lines as an array
+#    put @lines.reverse.join("\n");
 #    @lines .= reverse;           #> reverse array
-     
 #    for @lines -> $line {        #> go over each line 
 #        put $line;
-#    } 
+#    }
+ 
 }
 
-# define USAGE
+
+
+
+## define USAGE - not necessary
 #sub USAGE {
 #    note "Usage:\n\t{$*PROGRAM-NAME} <file>";
 #}
@@ -32,6 +38,6 @@ sub MAIN (Str $file! where *.IO.f){           #> one required argument
 ## print an array from the last
 # my @lines = $file.IO.lines;
 # for 1..@lines.elems -> $n {
-#     @lines[* - $n].say
+#     @lines[* - $n].say      #> no need to reverse    
 # }
 
