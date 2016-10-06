@@ -14,11 +14,13 @@ sub MAIN (Str $file! where *.IO.f){           #> one required argument
 #    }
    
     my @lines = $file.IO.lines;  #> save lines as an array
-    @lines .= reverse;           #> reverse array
-    
-    for @lines -> $line {        #> go over each line 
-        put $line;
-    } 
+    put @lines.reverse.join("\n");
+
+#    @lines .= reverse;           #> reverse array
+     
+#    for @lines -> $line {        #> go over each line 
+#        put $line;
+#    } 
 }
 
 # define USAGE
