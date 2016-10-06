@@ -24,9 +24,9 @@ sub MAIN (Str $file! where *.IO.f){           #> one required argument
 }
 
 # define USAGE
-sub USAGE {
-    note "Usage:\n\t{$*PROGRAM-NAME} <file>";
-}
+#sub USAGE {
+#    note "Usage:\n\t{$*PROGRAM-NAME} <file>";
+#}
 
 ## other trivival method
 ## print an array from the last
