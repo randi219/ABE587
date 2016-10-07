@@ -4,12 +4,26 @@
 
 read file lines and backwards print
 
+changed test file on 10/07
+
 =end comment
 
-
-sub MAIN (Str $file! where *.IO.f){      #> one required argument that must be a file 
-
+sub MAIN (Str $file!) {
+    die "Not a file" unless $file.IO.f;
+    
     $file.IO.lines.reverse.map(*.say);
+}
+
+
+
+
+
+
+
+
+#sub MAIN (Str $file! where *.IO.f){      #> one required argument that must be a file 
+
+#    $file.IO.lines.reverse.map(*.say);
 
 ## old code ##
 #    unless ($file.IO.f) {        #> must be a file
@@ -24,7 +38,7 @@ sub MAIN (Str $file! where *.IO.f){      #> one required argument that must be a
 #        put $line;
 #    }
  
-}
+#}
 
 
 
