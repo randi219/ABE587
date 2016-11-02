@@ -9,7 +9,7 @@
 #}
 
 
-sub MAIN (Str $s1!, Str $s2) {
+sub MAIN (Str $s1!, Str $s2!) {
 
     my ($diff, $n, $count) = 0, 0, 0; 
 
