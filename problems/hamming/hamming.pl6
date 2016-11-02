@@ -17,9 +17,9 @@ sub MAIN (Str $s1!, Str $s2!) {
     
     if $diff < 0 { $n = $s1.chars } else { $n = $s2.chars };
 
-    for 0..^$n -> $i {                                    
+    for 0..^$n {                                    
 
-        $count++ unless substr($s1, $i, 1) eq substr($s2, $i, 1);
+        $count++ unless substr($s1, $_, 1) eq substr($s2, $_, 1);
 
     }
     
