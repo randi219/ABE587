@@ -15,7 +15,8 @@ sub MAIN (Str $s1!, Str $s2!) {
 
     $diff = $s1.chars - $s2.chars;
     
-    if $diff < 0 { $n = $s1.chars } else { $n = $s2.chars };
+#    if $diff < 0 { $n = $s1.chars } else { $n = $s2.chars };
+    $n = min($s1.chars, $s2.chars);
 
     for 0..^$n {                                    
 
