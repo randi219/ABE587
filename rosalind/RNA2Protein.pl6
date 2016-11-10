@@ -17,8 +17,8 @@ sub MAIN(Str $input = 'AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA') {
     substr($input, 0, 3) ~~ /^ AUG $/ ?? my $temp = $input.flip 
                                       !! die "Coult not find 'START' codon!";
 
-    substr($temp, 0, 3).flip ~~ /^ UAA | UGA | UAG $/ ?? my $string = substr($temp, 3, $input.chars).flip 
-                                                      !! die "Coult not find 'STOP' codon!";
+    substr($temp, 0, 3).flip ~~ /^ UAA || UGA || UAG $/ ?? my $string = substr($temp, 3, $input.chars).flip 
+                                                        !! die "Coult not find 'STOP' codon!";
 
     #my @tb = $string.uc.comb.rotor(3);
     my @tb = $string.uc.comb(3);
