@@ -1,6 +1,19 @@
 #!/usr/bin/env perl6
 
-use v6;
+=begin comment
+
+  input:
+  GATATATGCATATACTT
+  ATAT
+
+  output:
+  2 4 10
+
+=end comment
+
+
+
+
 
 sub MAIN(Str $input = 'GATATATGCATATACTT', Str $motif = 'ATAT') {
     my $n = $motif.chars;
