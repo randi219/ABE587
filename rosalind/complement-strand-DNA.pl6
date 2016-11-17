@@ -14,9 +14,9 @@ expect ACCGGGTTTT
 
 
 sub MAIN(Str $input = 'AAAACCCGGT') {
-    my %dict = A=>'T', G=>'C', C=>'G', T=>'A';
+#    my %dict = A=>'T', G=>'C', C=>'G', T=>'A';
+#    say ~%dict{$input.uc.comb}.reverse.join;
 
-    say ~%dict{$input.uc.comb}.reverse.join;
-
+    say $input.uc.trans(['A','G','C','T'] => ['T','C','G','A']).flip;
 }
 
