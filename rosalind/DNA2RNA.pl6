@@ -14,8 +14,9 @@ expect: GAUGGAACUUGACUACGUAAAUU
 
 sub MAIN(Str $input = "GATGGAACTTGACTACGTAAATT") {
 
-    $_ = $input;
-    s:g/T/U/;
-    .say;
+#    $_ = $input;
+#    s:g/T/U/;
+#    .say;
 
+    say $input.trans('T' => 'U');
 }
